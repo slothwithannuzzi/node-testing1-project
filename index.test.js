@@ -82,22 +82,22 @@ describe('[Exercise 5] Seasons', () => {
     return season
   }
   test('[9] the FIRST call of seasons.next returns "summer"', () => {
-    expect(call(1)).toEqual(/summer/)
+    expect(call(1)).toEqual("summer")
   })
   test('[10] the SECOND call of seasons.next returns "fall"', () => {
-    expect(call(2)).toEqual(/fall/)
+    expect(call(2)).toEqual("fall")
   })
   test('[11] the THIRD call of seasons.next returns "winter"', () => {
-    expect(call(3)).toEqual(/winter/)
+    expect(call(3)).toEqual("winter")
   })
   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    expect(call(4)).toEqual(/spring/)
+    expect(call(4)).toEqual("spring")
   })
   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    expect(call(5)).toEqual(/summer/)
+    expect(call(5)).toEqual("summer")
   })
   test('[14] the 40th call of seasons.next returns "spring"', () => {
-    expect(call(40)).toEqual(/spring/)
+    expect(call(40)).toEqual("spring")
   })
 })
 
@@ -116,12 +116,11 @@ describe('[Exercise 6] Car', () => {
     expect(gas).toEqual(0)
   })
   test('[17] refueling allows to keep driving', () => {
-    focus.drive(570)
-    let gas = focus.tank
-    expect(gas).toEqual(1)
-    expect(focus.drive(100)).toReturn(600, /ran out of gas after 30 miles/)
+    focus.drive(600)
+    expect(focus.tank).toEqual(0)
+    expect(focus.drive(100)).toEqual("The tank is empty")
     focus.refuel(20)
-    expect(focus.drive(90)).toEqual(17)
+    expect(focus.drive(100)).toEqual(700);
   })
   test('[18] adding fuel to a full tank has no effect', () => {
     focus.refuel(20)
