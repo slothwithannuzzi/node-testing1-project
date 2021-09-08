@@ -202,11 +202,13 @@ class Car {
  */
 function isEvenNumberAsync(number){
   // ✨ implement
-  if(number % 2 === 0){
-    return true
-  } else{
-    return false
-  }
+  return new Promise((resolve) => {
+    if(number %2 === 0){
+      resolve(true)
+    } else{
+      resolve(false)
+    }
+  })
 }
 
 module.exports = {
